@@ -1,8 +1,8 @@
 <?php
 $host = '127.0.0.1';
-$db = 'jizmundo'; // Change to your database name
-$user = 'root'; // Change to your database user
-$pass = ''; // Change to your database password
+$db = 'jizmundo';
+$user = 'root';
+$pass = ''; 
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
