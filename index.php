@@ -33,32 +33,32 @@
 		</p>
 	</form>
 
-	<h3>Registered Sellers</h3> <!-- Updated this header -->
+	<h3>Registered Sellers</h3> 
 	<table style="width:100%; margin-top: 50px;">
 	  <tr>
-	    <th>Seller ID</th> <!-- Changed "Customer ID" to "Seller ID" -->
+	    <th>Seller ID</th> 
 	    <th>First Name</th>
 	    <th>Last Name</th>
 		<th>Company Name</th>
 	    <th>Email</th>
-	    <th>Product Category</th> <!-- Changed "Interested Category" to "Product Category" -->
+	    <th>Product Category</th>
 	    <th>Date Registered</th>
 	    <th>Action</th>
 	  </tr>
 
-	  <?php $seeAllSellers = seeAllSellers($pdo); ?> <!-- Updated to reflect sellers -->
+	  <?php $seeAllSellers = seeAllSellers($pdo); ?> 
 	  <?php foreach ($seeAllSellers as $row) { ?>
 	  <tr>
-	  	<td><?php echo $row['seller_id']; ?></td> <!-- Changed 'customer_id' to 'seller_id' -->
+	  	<td><?php echo $row['seller_id']; ?></td> 
 	  	<td><?php echo $row['first_name']; ?></td>
 	  	<td><?php echo $row['last_name']; ?></td>
 		  <td><?php echo $row['company_name']; ?></td>
 	  	<td><?php echo $row['email']; ?></td>
-		<td><?php echo $row['product_category']; ?></td> <!-- Changed 'interested_category' to 'product_category' -->
+		<td><?php echo $row['product_category']; ?></td> 
 	  	<td><?php echo $row['date_added']; ?></td>
 	  	<td>
-    		<a href="editseller.php?seller_id=<?php echo htmlspecialchars($row['seller_id']); ?>">Edit</a> <!-- Updated the edit link -->
-    		<a href="deleteseller.php?seller_id=<?php echo htmlspecialchars($row['seller_id']); ?>">Delete</a> <!-- Updated the delete link -->
+    		<a href="editseller.php?seller_id=<?php echo htmlspecialchars($row['seller_id']); ?>">Edit</a> 
+    		<a href="deleteseller.php?seller_id=<?php echo htmlspecialchars($row['seller_id']); ?>">Delete</a> 
 			<a class="button" href="viewCustomers.php?seller_id=<?php echo htmlspecialchars($row['seller_id']); ?>">View Customers</a>
 		</td>
 	  </tr>
