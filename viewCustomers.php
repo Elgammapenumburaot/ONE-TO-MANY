@@ -2,24 +2,20 @@
 require_once 'core/dbConfig.php'; 
 require_once 'core/models.php'; 
 
-// Check if the seller_id is provided in the URL
 if (isset($_GET['seller_id'])) {
     $seller_id = $_GET['seller_id'];
 
-    // Retrieve the customers for this seller
     $customers = getCustomersBySeller($pdo, $seller_id);
 } else {
     echo "Seller ID is missing.";
     exit();
 }
 
-// Handle the form submission for adding a new customer
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['insertNewCustomerBtn'])) {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
 
-    // Call the function to insert a new customer
     $insertSuccess = insertNewCustomer($pdo, $firstName, $lastName, $email, $seller_id);
     
     if ($insertSuccess) {
@@ -82,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['insertNewCustomerBtn'
 
     <a href="index.php">Back to Home</a>
 
-    <!-- New Customer Form -->
     <div class="form-container">
         <h4>Add New Customer</h4>
         <?php if (isset($errorMessage)): ?>
