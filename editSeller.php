@@ -2,11 +2,10 @@
 require_once 'core/dbConfig.php'; 
 require_once 'core/models.php'; 
 
-// Check if the seller_id is set in the URL
+
 if (isset($_GET['seller_id'])) {
     $seller_id = $_GET['seller_id'];
-    
-    // Fetch the seller details from the database
+
     $seller = getSellerById($pdo, $seller_id);
     
     if (!$seller) {
@@ -16,7 +15,6 @@ if (isset($_GET['seller_id'])) {
     die('Seller ID not provided.');
 }
 
-// Handle the form submission and update the seller
 if (isset($_POST['updateSellerBtn'])) {
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);
@@ -25,13 +23,10 @@ if (isset($_POST['updateSellerBtn'])) {
     $productCategory = trim($_POST['productCategory']);
     $dateAdded = trim($_POST['dateAdded']);
 
-    // Check if all required fields are filled
     if (!empty($firstName) && !empty($lastName) && !empty($companyName) && !empty($email) && !empty($productCategory) && !empty($dateAdded)) {
         
-        // Update seller in the database
         $updateQuery = updateSeller($pdo, $seller_id, $firstName, $lastName, $companyName, $email, $productCategory, $dateAdded);
         
-        // Redirect after successful update
         if ($updateQuery) {
             header("Location: index.php");
             exit;
